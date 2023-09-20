@@ -262,6 +262,18 @@ Em "Utils.hpp" estão definidos os cabeçalhos dos métodos da classe Utils, enq
 
 A classe Utils é uma forma eficiente de organizar essas funcionalidades auxiliares, isolando-as do restante do código e promovendo a reutilização de código. Ao reunir essas operações em uma única classe, você está seguindo princípios de modularidade e coesão, tornando o código mais organizado, legível e manutenível. Além disso, a classe ajuda a abstrair detalhes de implementação e proporciona uma interface mais intuitiva para o uso dessas funcionalidades em outras partes do programa.
 
+### BinaryTree.hpp e BinaryTree.cpp
+
+
+
+### AVLTree.hpp e AVLTree.cpp
+
+
+
+### HuffmanTree.hpp e HuffmanTree.cpp
+
+
+
 ## Resultados
 
 
