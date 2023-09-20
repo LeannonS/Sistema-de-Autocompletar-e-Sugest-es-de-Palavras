@@ -136,6 +136,18 @@ Em resumo, o uso de tabelas de dispersão para verificar a presença de palavras
 
 Igualmente, foi decidido criar uma hash para cada um dos heaps originais, pois apartir deste metódo foi possível obter a verificação para cada palavra se ela está contida na heap de uma forma mais eficiente. Em geral, as vantagens e desvantagens desta immplementação são as mesmas de criar uma tabela hash para a verificação se uma palavra está contida no texto, essas mesmas vantagens e desvantagens estão citadas no tópico acima.
 
+## Árvore Binária
+
+
+
+## Árvore AVL
+
+
+
+## Codificação de Huffman
+
+
+
 ## Principais funções do C++ utilizadas
 
 ### unordered_map</p>
