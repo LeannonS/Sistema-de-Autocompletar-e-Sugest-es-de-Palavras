@@ -110,9 +110,33 @@ Foi decidido fazer tal implementação utilizando hash e heap devido a complexid
 
 Para a implementação do heap, foi escolhido uma estrutura de heap mínimo devido a praticidade para encontrar o menor valor do heap caso contrário de um heap máximo, que seria mais trabalhoso para se encontrar o a palavra com menor frequência. Utilizando-se um heap mínimo, podemos a todo momento verificar e fazer a remoção apenas da raiz tornando assim mais eficiente a remoção do elemento.
 
-Foi decidido criar um vector para cada heap
+Foi decidido fazer a criação de um heap para cada texto e criar um auxiliar para modifica-lo, pois tal implementação tornou-se mais eficiente atualização do heap para a construção das árvores e também a obtenção do heap original de cada texto. A seguir, está listado algumas vantagens e desvantagens:
 
-## Funções do C++ utilizadas
+```Vantagens:``` </p>
+* Eficiência na Atualização: A estrutura de heaps auxiliares permite atualizações eficientes durante a construção das árvores, o que é fundamental para lidar com grandes volumes de dados.
+* Preservação dos Heaps Originais: A capacidade de manter o heap original de cada texto intacto facilita a reutilização e comparação dos dados conforme necessário.
+* Melhor Desempenho: A abordagem otimizada contribui para um desempenho geral mais rápido e eficaz na obtenção de resultados.
+
+```Desvantagens:``` </p>
+* Uso de Memória: Manter vários heaps pode consumir uma quantidade significativa de memória, especialmente quando lidando com numerosos textos.
+* Complexidade Adicional: A implementação de múltiplos heaps e suas estruturas auxiliares adiciona complexidade ao código.
+
+No geral, a escolha de usar heaps auxiliares para gerenciar os dados de texto oferece benefícios tangíveis em termos de desempenho e flexibilidade, apesar de um aumento no consumo de memória e complexidade da implementação. Porém, após uma analise optou-se pela implementação de se mantar salvo os heaps originais para cada texto devido ao melhor desempenho de tempo.
+
+Támbem foi decidido manter uma tabela de disperção para cada texto, pois assim foi possível verificar com maior eficiencia se uma determinada palavra estava contida em determinado texto. Segue abaixo as vantagens e desvntagens desta forma de implementação:
+
+```Vantagens:``` </p>
+* Eficiência na Verificação: A utilização de tabelas de dispersão para cada texto proporciona uma verificação eficiente da presença de uma palavra específica em um texto. Isso é especialmente vantajoso quando se lida com grandes volumes de dados, pois evita a necessidade de percorrer todo o texto em busca de uma palavra.
+* Tempo de Resposta Rápido: Graças à rápida pesquisa em tabelas de dispersão, o sistema pode fornecer respostas e sugestões em tempo real, tornando a experiência do usuário mais ágil e responsiva.
+
+```Desvantagens:``` </p>
+* Consumo de Memória: Manter tabelas de dispersão para cada texto pode resultar em um consumo considerável de memória, especialmente quando há muitos textos ou quando o tamanho do vocabulário é grande.
+
+Em resumo, o uso de tabelas de dispersão para verificar a presença de palavras em textos oferece uma vantagem significativa em termos de eficiência e tempo de resposta, mas vem com o custo de consumo de memória. Essa escolha deve ser ponderada com base nas necessidades específicas do sistema e nos recursos disponíveis.
+
+Igualmente, foi decidido criar uma hash para cada um dos heaps originais, pois apartir deste metódo foi possível obter a verificação para cada palavra se ela está contida na heap de uma forma mais eficiente. Em geral, as vantagens e desvantagens desta immplementação são as mesmas de criar uma tabela hash para a verificação se uma palavra está contida no texto, essas mesmas vantagens e desvantagens estão citadas no tópico acima.
+
+## Principais funções do C++ utilizadas
 
 ### unordered_map</p>
 O _unordered_map_ é uma classe em C++ que implementa um contêiner associativo baseado em tabela de hash. Ele permite armazenar pares de chave-valor, onde cada chave é usada para identificar exclusivamente o valor correspondente. Em outras palavras, ele é uma coleção de elementos, onde cada elemento possui uma chave única e um valor associado.
@@ -217,3 +241,108 @@ A complexidade de tempo da função pop_heap é O(log n), onde n é o número de
 
 * <strong style="color:white">Conclusão:</strong> </p>
 A função pop_heap é uma ferramenta importante para remover o elemento principal de um heap e manter a propriedade correta. Ela usa o processo de "sift down" para reorganizar os elementos após a remoção do elemento principal. Compreender seu funcionamento interno é fundamental para utilizar essa função efetivamente em algoritmos que envolvem heaps.
+
+## Código-fonte
+
+### main.cpp
+
+Este trecho de código em C++ representa o arquivo "main.cpp". A função main() é responsável por iniciar o programa, processar os arquivos de entrada, contar a frequência das palavras, selecionar as palavras mais frequentes usando um heap mínimo e imprimir os resultados, bem como calcular o tempo de execução.
+
+### Utils.hpp e Utils.cpp
+
+A classe Utils em "Utils.hpp" e "Utils.cpp" desempenha um papel fundamental ao oferecer funcionalidades auxiliares para facilitar operações comuns e complexas no programa. Esta classe foi projetada para encapsular diversas funções que não estão diretamente relacionadas à lógica principal da ordenação, mas que são essenciais para o funcionamento do programa como um todo.
+
+Em "Utils.hpp" estão definidos os cabeçalhos dos métodos da classe Utils, enquanto em "Utils.cpp" estão as implementações concretas desses métodos. Aqui está uma explicação das principais utilidades e funcionalidades da classe Utils:
+
+* ```wchar_t* getText(const locale loc, string name)``` O método _getText_, recebe como parâmetro uma constante do tipo locale, tal parâmetro garante que as operações de leitura e manipulação de texto sejam sensíveis à localização, também é passado uma string chamada name que é referente ao nome do arquivo que será feito a leitura. A função _getText_, oferece a capacidade de ler um arquivo de texto e retornar seu conteúdo como um array de caracteres wchar_t. Isso é crucial para processar e analisar o conteúdo dos arquivos de entrada que contêm os textos. Além disso, a classe lida com a codificação UTF-8, garante que caracteres especiais sejam tratados corretamente.
+
+* ```unordered_set<wstring> getStopWords(const locale loc)``` O método _getStopWords_, recebe como parâmetro uma constante do tipo locale, tal parâmetro garante que as operações de leitura e manipulação de texto sejam sensíveis à localização. A função getStopWords, lê um arquivo contendo palavras de parada (stop words), que são palavras que geralmente são filtradas em processos de análise de texto, como na contagem de frequência de palavras. Essas palavras incluem termos como "e", "de", "para", que são frequentes e geralmente não fornecem informações significativas, retorando todas stopwords obtidas em uma estrutura chamada _unordered_set_.
+
+* ```void printHeap(vector<Item> heap);``` O método _printHeap_, recebe como parâmetro um vector de Item que representa o heap. A função _printHeap_, é responsável por imprimir os elementos contidos em um heap, sendo ele o heap que armazena as palavras k mais frequentes. Isso é importante para visualizar os resultados do processamento das palavras e verificar se a lógica do heap está funcionando corretamente.
+
+A classe Utils é uma forma eficiente de organizar essas funcionalidades auxiliares, isolando-as do restante do código e promovendo a reutilização de código. Ao reunir essas operações em uma única classe, você está seguindo princípios de modularidade e coesão, tornando o código mais organizado, legível e manutenível. Além disso, a classe ajuda a abstrair detalhes de implementação e proporciona uma interface mais intuitiva para o uso dessas funcionalidades em outras partes do programa.
+
+## Resultados
+
+
+
+## Máquina de teste
+
+<table style="width: 100%;" border="1">
+  <tr align="center">
+    <td colspan="2">
+      <div>
+        <br>
+          <p class="sizeText color">Notebook Acer</p>
+        <br>        
+      </div>
+    </td>
+  <tr>
+  <tr align="center">
+    <td>
+      <div>
+        <br>
+          <p class="sizeText color">RAM</p>
+        <br>
+      </div> 
+    </td>
+    <td>
+      <br>
+        <p class="sizeText color">6GB DDR3</p>
+      <br>
+    </td>
+  </tr>
+  <tr align="center">
+    <td style="width: 20%;">
+      <p class="sizeText color">
+        <br>
+          <p class="sizeText color">SO</p>
+        <br>
+      </p>
+    </td>
+    <td >
+      <br>
+        <p class="sizeText color">Windows 10, 64bits</p>
+      <br>
+    </td>
+  </tr>
+  <tr align="center">
+    <td style="width: 20%;">
+      <br>
+        <p class="sizeText color">    
+          CPU
+        </p>
+      <br>
+    </td>
+    <td>
+      <br>
+        <p class="sizeText color">Intel core i5 4° geração 1,70GHz</p>
+      <br>
+    </td>
+  </tr>
+</table>
+
+## Conclusão
+
+
+
+## Importante
+
+
+
+## Compilação e Execução
+
+Esse código possui um arquivo Makefile que realiza todo o procedimento de compilação e execução. Para tanto, temos as seguintes diretrizes de execução:
+
+
+| Comando                |  Função                                                                                           |                     
+| -----------------------| ------------------------------------------------------------------------------------------------- |
+|  `make clean`          | Apaga a última compilação realizada contida na pasta build                                        |
+|  `make`                | Executa a compilação do programa utilizando o gcc, e o resultado vai para a pasta build           |
+|  `make run`            | Executa o programa da pasta build após a realização da compilação                                 |
+
+
+# Contato
+
+✉️ <i>leanndrosousac@gmail.com</i>
+</a>
