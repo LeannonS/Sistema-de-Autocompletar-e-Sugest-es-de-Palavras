@@ -136,17 +136,51 @@ Em resumo, o uso de tabelas de dispersão para verificar a presença de palavras
 
 Igualmente, foi decidido criar uma hash para cada um dos heaps originais, pois apartir deste metódo foi possível obter a verificação para cada palavra se ela está contida na heap de uma forma mais eficiente. Em geral, as vantagens e desvantagens desta immplementação são as mesmas de criar uma tabela hash para a verificação se uma palavra está contida no texto, essas mesmas vantagens e desvantagens estão citadas no tópico acima.
 
+Nos casos em que dois elementos têm a mesma frequência durante a construção das árvores binárias padrão e AVL, foi adotado o método de inserir automaticamente o elemento no nó à esquerda da árvore. Essa abordagem foi escolhida devido à sua simplicidade e facilidade de implementação. Embora não tenha sido realizada uma análise detalhada para determinar a melhor forma de lidar com colisões, essa abordagem se mostrou funcional e eficiente para o algoritmo.
+
 ## Árvore Binária
 
+Uma árvore binária é uma estrutura de dados hierárquica usada em ciência da computação para organizar dados de forma eficiente. Ela consiste em um conjunto de nós conectados em uma estrutura hierárquica, onde cada nó pode ter, no máximo, dois filhos: um filho à esquerda e um filho à direita. A estrutura é projetada de forma a refletir uma relação de ordem entre os nós, em que o filho à esquerda representa um valor menor ao nó pai, enquanto o filho à direita representa um valor maior.
 
+Na implementação da árvore, foi escolhida a abordagem de inserção não recursiva. Em casos em que dois elementos possuem a mesma chave de ordenação, optou-se por inserir o novo elemento à esquerda do nó correspondente. Abaixo, apresentamos um exemplo de uma árvore binária:
+
+![Árvore Binária](img/BinaryTree.PNG)<br>
 
 ## Árvore AVL
 
+Uma Árvore AVL é uma estrutura de dados de árvore binária que possui uma propriedade especial de balanceamento. Nesta estrutura, cada nó possui um fator de balanceamento que indica a diferença entre as alturas das subárvores esquerda e direita. O fator de balanceamento deve ser mantido dentro de limites definidos para garantir que a árvore permaneça balanceada.
 
+Na Árvore AVL, a inserção foi implementada de forma recursiva. Assim como na árvore binária padrão, foi estabelecido que, sempre que um novo elemento inserido for igual a outro elemento já presente na árvore, o novo elemento será inserido à esquerda do nó correspondente.
 
-## Codificação de Huffman
+### Balaceamneto
 
+* Se o fator de balanceamento de um nó for igual a 0, 1 ou -1, a árvore é considerada balanceada.
+* Se o fator de balanceamento de um nó for maior que 1, a árvore está desequilibrada à direita, e são necessárias rotações para reequilibrá-la.
+* Se o fator de balanceamento de um nó for menor que -1, a árvore está desequilibrada à esquerda, e também são necessárias rotações para reequilibrá-la.
 
+### Rotações na Árvore AVL
+
+* Rotação Simples à Direita: Realizada quando um nó está desequilibrado à esquerda (fator de balanceamento > 1) e o desequilíbrio ocorre na subárvore esquerda do nó desequilibrado. Uma rotação simples à direita reequilibra a árvore.
+
+* Rotação Simples à Esquerda: Realizada quando um nó está desequilibrado à direita (fator de balanceamento < -1) e o desequilíbrio ocorre na subárvore direita do nó desequilibrado. Uma rotação simples à esquerda reequilibra a árvore.
+
+* Rotação Dupla à Direita: Realizada quando um nó está desequilibrado à esquerda (fator de balanceamento > 1) e o desequilíbrio ocorre na subárvore direita do nó desequilibrado. A rotação dupla à direita envolve duas operações: primeiro uma rotação à esquerda e, em seguida, uma rotação à direita.
+
+* Rotação Dupla à Esquerda: Realizada quando um nó está desequilibrado à direita (fator de balanceamento < -1) e o desequilíbrio ocorre na subárvore esquerda do nó desequilibrado. A rotação dupla à esquerda envolve duas operações: primeiro uma rotação à direita e, em seguida, uma rotação à esquerda.
+
+Abaixo, você encontrará um exemplo de uma Árvore AVL:
+
+![Árvore AVL](img/AVLTree.PNG)<br>
+
+## Árvore de Huffman
+
+Uma árvore de Huffman é uma árvore binária completa construída de forma recursiva. Ela é criada através da fusão dos dois símbolos com menor probabilidade, que são substituídos por símbolos auxiliares. Esse processo é repetido até que todos os símbolos sejam agrupados em símbolos auxiliares, resultando em uma árvore binária completa.
+
+Posteriormente, essa árvore é percorrida e valores binários (0 ou 1) são atribuídos a cada aresta. Esses caminhos pela árvore representam os códigos binários associados a cada símbolo.
+
+Em resumo, a árvore de Huffman é uma técnica de compactação que cria uma estrutura de árvore binária que reflete a frequência dos símbolos em um conjunto de dados. Os símbolos mais frequentes têm códigos mais curtos, enquanto os menos frequentes têm códigos mais longos, resultando em uma eficiente compressão de dados. Segue abaixo um exemplo da Árvore de Huffman: 
+
+![Árvore de Huffman](img/HuffmanTree.PNG)<br>
 
 ## Principais funções do C++ utilizadas
 
@@ -273,18 +307,6 @@ Em "Utils.hpp" estão definidos os cabeçalhos dos métodos da classe Utils, enq
 * ```void printHeap(vector<Item> heap);``` O método _printHeap_, recebe como parâmetro um vector de Item que representa o heap. A função _printHeap_, é responsável por imprimir os elementos contidos em um heap, sendo ele o heap que armazena as palavras k mais frequentes. Isso é importante para visualizar os resultados do processamento das palavras e verificar se a lógica do heap está funcionando corretamente.
 
 A classe Utils é uma forma eficiente de organizar essas funcionalidades auxiliares, isolando-as do restante do código e promovendo a reutilização de código. Ao reunir essas operações em uma única classe, você está seguindo princípios de modularidade e coesão, tornando o código mais organizado, legível e manutenível. Além disso, a classe ajuda a abstrair detalhes de implementação e proporciona uma interface mais intuitiva para o uso dessas funcionalidades em outras partes do programa.
-
-### BinaryTree.hpp e BinaryTree.cpp
-
-
-
-### AVLTree.hpp e AVLTree.cpp
-
-
-
-### HuffmanTree.hpp e HuffmanTree.cpp
-
-
 
 ## Resultados
 
