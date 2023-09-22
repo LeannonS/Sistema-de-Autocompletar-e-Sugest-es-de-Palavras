@@ -144,7 +144,7 @@ Uma árvore binária é uma estrutura de dados hierárquica usada em ciência da
 
 Na implementação da árvore, foi escolhida a abordagem de inserção não recursiva. Em casos em que dois elementos possuem a mesma chave de ordenação, optou-se por inserir o novo elemento à esquerda do nó correspondente. Abaixo, apresentamos um exemplo de uma árvore binária:
 
-![Árvore Binária](img/BinaryTree.PNG)<br>
+![Árvore Binária](img/BinaryTree.png)<br>
 
 ## Árvore AVL
 
@@ -304,13 +304,21 @@ Em "Utils.hpp" estão definidos os cabeçalhos dos métodos da classe Utils, enq
 
 * ```unordered_set<wstring> getStopWords(const locale loc)``` O método _getStopWords_, recebe como parâmetro uma constante do tipo locale, tal parâmetro garante que as operações de leitura e manipulação de texto sejam sensíveis à localização. A função getStopWords, lê um arquivo contendo palavras de parada (stop words), que são palavras que geralmente são filtradas em processos de análise de texto, como na contagem de frequência de palavras. Essas palavras incluem termos como "e", "de", "para", que são frequentes e geralmente não fornecem informações significativas, retorando todas stopwords obtidas em uma estrutura chamada _unordered_set_.
 
-* ```void printHeap(vector<Item> heap);``` O método _printHeap_, recebe como parâmetro um vector de Item que representa o heap. A função _printHeap_, é responsável por imprimir os elementos contidos em um heap, sendo ele o heap que armazena as palavras k mais frequentes. Isso é importante para visualizar os resultados do processamento das palavras e verificar se a lógica do heap está funcionando corretamente.
-
 A classe Utils é uma forma eficiente de organizar essas funcionalidades auxiliares, isolando-as do restante do código e promovendo a reutilização de código. Ao reunir essas operações em uma única classe, você está seguindo princípios de modularidade e coesão, tornando o código mais organizado, legível e manutenível. Além disso, a classe ajuda a abstrair detalhes de implementação e proporciona uma interface mais intuitiva para o uso dessas funcionalidades em outras partes do programa.
+
+### BinaryTree.hpp e BinaryTree.cpp
+
+A classe BinaryTree desempenha um papel fundamental no programa, oferecendo funcionalidades essenciais para a manipulação de uma árvore binária. Ela foi projetada para encapsular operações relacionadas à inserção, impressão e destruição de uma árvore binária. Os arquivos "BinaryTree.hpp" e "BinaryTree.cpp" contêm as definições e implementações dessa classe.
+
+Aqui estão algumas das principais funcionalidades e utilidades da classe BinaryTree:
+
+### AVLTree.hpp e AVLTree.cpp
+
+### HuffmanTree.hpp e HuffmanTree.cpp
 
 ## Resultados
 
-
+* ```void printHeap(vector<Item> heap);``` O método _printHeap_, recebe como parâmetro um vector de Item que representa o heap. A função _printHeap_, é responsável por imprimir os elementos contidos em um heap, sendo ele o heap que armazena as palavras k mais frequentes. Isso é importante para visualizar os resultados do processamento das palavras e verificar se a lógica do heap está funcionando corretamente.
 
 ## Máquina de teste
 
