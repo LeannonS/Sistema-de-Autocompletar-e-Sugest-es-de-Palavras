@@ -106,7 +106,7 @@ int main()
     }
   }
   File.close();
-  u.printHeap(minHeap[0]);
+  // u.printHeap(minHeap[0]);
   
   return 0;
 }
