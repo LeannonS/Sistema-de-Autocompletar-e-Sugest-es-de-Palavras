@@ -477,7 +477,21 @@ Podemos observar nos exemplos de saídas acima, que todas as árvores foram cons
 
 ## Conclusão
 
+A solução proposta para o problema dos "top k itens" exemplifica de forma clara e eficaz a aplicação das estruturas de hash e heap em um contexto prático. A busca pelos k elementos mais valiosos em uma coleção de dados é uma tarefa amplamente encontrada em análise de dados e processamento de informações. Através da combinação estratégica das estruturas de hash e heap, é possível atingir essa meta de maneira otimizada e eficiente.
 
+Ao longo da execução do programa, foi possível examinar a construção de três tipos de árvores previamente abordadas, cada uma delas oferecendo vantagens e desvantagens específicas, que se alinham com diferentes objetivos de codificação.
+
+A Árvore Binária Padrão, conhecida por sua simplicidade e facilidade de implementação, revela-se uma escolha sólida para operações de busca e organização de dados. Sua principal vantagem reside na sua facilidade de compreensão e implementação, tornando-a uma excelente opção em cenários onde a complexidade é relativamente baixa. No entanto, apresenta desafios em termos de eficiência quando confrontada com volumes significativos de dados, especialmente durante a busca por palavras frequentes. Sua ausência de mecanismos de balanceamento automático pode levar a árvores desequilibradas, resultando em tempos de pesquisa mais longos.
+
+Agora, observando-se a Árvore AVL, é possível notar uma estrutura que prioriza o balanceamento automático. Isso confere à Árvore AVL uma grande vantagem em cenários onde a eficiência de pesquisa é crucial, especialmente em contextos com grandes quantidades de dados. Sua capacidade de manter o equilíbrio da árvore durante as operações de inserção e exclusão garante tempos de pesquisa consistentemente rápidos. No entanto, sua complexidade de implementação e maior consumo de memória podem torná-la menos atraente em situações de baixa complexidade ou restrições de recursos.
+
+Por último, a Árvore de Huffman oferece uma abordagem única na compactação de texto. Ao gerar códigos binários eficientes com base na frequência das palavras, é a escolha ideal quando o objetivo principal é reduzir o tamanho de um texto. No entanto, sua utilidade se limita a essa tarefa específica, uma vez que não foi projetada para facilitar a pesquisa individual de palavras em um texto.
+
+No contexto deste repositório, onde estamos construindo árvores a partir de uma estrutura de min-heap, a Árvore Binária Padrão revela-se uma escolha menos favorável. Isso ocorre devido à tendência de desbalanceamento significativo que ela experimentará. Conforme os elementos são inseridos após a primeira inserção, a árvore tende a se inclinar fortemente para a direita, resultando em um desequilíbrio extremo. Essa característica torna a Árvore Binária Padrão uma opção menos adequada para esse cenário específico.
+
+Por outro lado, a Árvore AVL demonstra maior eficácia nesse contexto. A capacidade intrínseca da AVL de manter o equilíbrio da árvore durante as operações de inserção e exclusão é particularmente vantajosa aqui. Isso ocorre porque, no caso em questão, muitos elementos são inseridos sequencialmente a partir da estrutura de min-heap, e a AVL é capaz de reequilibrar a árvore conforme necessário. Portanto, a Árvore AVL emerge como a escolha preferencial, garantindo que a árvore permaneça relativamente balanceada mesmo em condições desafiadoras.
+
+Em resumo, cada uma dessas árvores apresenta suas próprias vantagens e desvantagens, tornando-as adequadas para diferentes propósitos. A escolha entre elas dependerá dos objetivos específicos de codificação e das características do conjunto de dados em questão.
 
 ## Importante
 
