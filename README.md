@@ -388,7 +388,34 @@ A classe HuffmanTree é uma forma eficiente de organizar essas funcionalidades r
 
 ## Resultados
 
+Lembre-se, antes de iniciar a execução do programa defina previamente as variáveis K e numFiles no inicio do código, siga o exemplo abaixo:
 
+![Tamanhos a definir](img/Tamanhos a definir.PNG)<br>
+
+Após se atualizar os valores mostrados acima, é feito a execução do programada e o mesmo não é mostrada nenhuma saída no terminal, é mostrado apenas os resultados da execução do programa no arquivo outputFile, criado para exibição de todos os resultados. No exemplo mostrado a seguir, foi definido a leitura de 6 arquivos e obteve-se as top 20 palavras dos textos. Segue abaixo exemplos dos arquivos input1.data, stopwords.txt e input.txt:
+
+![Texto de entrada](img/Texto de entrada.PNG)<br>
+Arquivo "input1.txt"
+
+![stopwords](img/stopwords.PNG)<br>
+Arquivo "stopwords.txt"
+
+![input](img/input.PNG)<br>
+Arquivo "input.txt"
+
+Após a execução, é criado um arquivo "output.txt", neste arquivo está contido como ficou cada uma das árvores e também é mostrado quando uma palavra existente no arquivo "input.txt" não está contida no texto que está sendo verificado. Abaixo é mostrado os resultados da execução:
+
+![Estrutura de saida](img/"Estrutura_de_saida".PNG)<br>
+Estrutura de saída do arquivo "output.txt"
+
+![Saida BinaryTree](img/Saida_BinaryTree.PNG)<br>
+Exemplo de saída para Árvore Binaria
+
+![Saida AVLTree](img/Saida_AVLTree.PNG)<br>
+Exemplo de saída para Árvore AVL
+
+![Saida HuffmanTree](img/Saida_HuffmanTree.PNG)<br>
+Exemplo de saída para Árvore de Huffman
 
 ## Máquina de teste
 
