@@ -192,12 +192,12 @@ void Utils::makeHeaps(const int& k, const int& numFiles, const vector<unordered_
   }
 }
 
-void Utils::printHeap(vector<pair<wstring, int>> heap)
-{
-  wstring_convert<codecvt_utf8<wchar_t>> converter;
+// void Utils::printHeap(vector<pair<wstring, int>> heap)
+// {
+//   wstring_convert<codecvt_utf8<wchar_t>> converter;
   
-  for (auto i = 0u; i < heap.size(); i++)
-  {
-    cout << "Palavra: " << converter.to_bytes(heap[i].first) << " --- " << "Frequência: "<< heap[i].second << endl;
-  }
-}
+//   for (auto i = 0u; i < heap.size(); i++)
+//   {
+//     cout << "Palavra: " << converter.to_bytes(heap[i].first) << " --- " << "Frequência: "<< heap[i].second << endl;
+//   }
+// }
