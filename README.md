@@ -390,11 +390,11 @@ A classe HuffmanTree é uma forma eficiente de organizar essas funcionalidades r
 
 Lembre-se, antes de iniciar a execução do programa defina previamente as variáveis K e numFiles no inicio do código, siga o exemplo abaixo:
 
-![Tamanhos a definir](img/Tamanhos a definir.PNG)<br>
+![Tamanhos a definir](img/Tamanhos_a_definir.PNG)<br>
 
 Após se atualizar os valores mostrados acima, é feito a execução do programada e o mesmo não é mostrada nenhuma saída no terminal, é mostrado apenas os resultados da execução do programa no arquivo outputFile, criado para exibição de todos os resultados. No exemplo mostrado a seguir, foi definido a leitura de 6 arquivos e obteve-se as top 20 palavras dos textos. Segue abaixo exemplos dos arquivos input1.data, stopwords.txt e input.txt:
 
-![Texto de entrada](img/Texto de entrada.PNG)<br>
+![Texto de entrada](img/input1.PNG)<br>
 Arquivo "input1.txt"
 
 ![stopwords](img/stopwords.PNG)<br>
