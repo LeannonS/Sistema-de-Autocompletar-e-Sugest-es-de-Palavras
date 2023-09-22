@@ -452,7 +452,13 @@ A classe HuffmanTree é uma forma eficiente de organizar essas funcionalidades r
 
 ## Importante
 
+* Antes de se realizar a execução do algoritmo, ao inicio do programa lembre-se de definir a váriavel k que representa o tamanho do heape e a váriavel numFiles, representando o número de arquivos que será verificado.
 
+* Tenha inserido previamente na pasta dataset, todos os arquivos de texto nomeados como "inputN.data" sendo N um número começando apartir de 1 e incrementando sequencialmente.
+
+* Insira todas as palavras a serem presquisadas no arquivo "input.txt" presente na pasta _dataset_.
+
+* Ao final do programa, um novo arquivo chamado "output.txt" será criado fora das pastas previamente existentes, onde será apresentado todas as três arvóres na forma Pós-Ordem, Pré-Ordem e In-Ordem.
 
 ## Compilação e Execução
 
