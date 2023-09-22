@@ -417,7 +417,7 @@ Exemplo de saída para Árvore AVL
 ![Saida HuffmanTree](img/Saida_HuffmanTree.PNG)<br>
 Exemplo de saída para Árvore de Huffman
 
-Podemos observar nos exemplos de saídas acima, que todas as árvores foram construidas da forma definida para serem construidas no texto, sempre que a palavra existe no texto porém não existe no top k, as árvores são construidas simplesmente com base no heap original porém, quando verificamos que ela está contida no top k palavras iremos remove-la do heap e adicionaremos a próxima palavra com maior frequência no texto, também deve-se observar os casos em que as palavras não estão contidas no texto, é apenas informado que a palavra não está contida no arquivo verificado.
+Podemos observar nos exemplos de saídas acima, que os dados nas árvores estão sendo mostrados a palavra e depois a sua frequência, com exceção da árvore de Huffman que pode-se observar a palavra, sua freqência e por fim seu código. Também é possível notar que todas as árvores foram construidas da forma definida para serem construidas no texto, sempre que a palavra existe no texto porém não existe no top k, as árvores são construidas simplesmente com base no heap original porém, quando verificamos que ela está contida no top k palavras iremos remove-la do heap e adicionaremos a próxima palavra com maior frequência no texto, também deve-se observar os casos em que as palavras não estão contidas no texto, é apenas informado que a palavra não está contida no arquivo verificado.
 
 ## Máquina de teste
 
