@@ -405,10 +405,10 @@ Arquivo "input.txt"
 
 Após a execução, é criado um arquivo "output.txt", neste arquivo está contido como ficou cada uma das árvores e também é mostrado quando uma palavra existente no arquivo "input.txt" não está contida no texto que está sendo verificado. Abaixo é mostrado os resultados da execução:
 
-![Estrutura de saida](img/"Estrutura_de_saida".PNG)<br>
+![Estrutura de saida](img/Estrutura_de_saida.PNG)<br>
 Estrutura de saída do arquivo "output.txt"
 
-![Saida BinaryTree](img/Saida_BinaryTree.PNG)<br>
+![Saida BinaryTree](img/Saida_BinayTree.PNG)<br>
 Exemplo de saída para Árvore Binaria
 
 ![Saida AVLTree](img/Saida_AVLTree.PNG)<br>
@@ -416,6 +416,8 @@ Exemplo de saída para Árvore AVL
 
 ![Saida HuffmanTree](img/Saida_HuffmanTree.PNG)<br>
 Exemplo de saída para Árvore de Huffman
+
+Podemos observar nos exemplos de saídas acima, que todas as árvores foram construidas da forma definida para serem construidas no texto, sempre que a palavra existe no texto porém não existe no top k, as árvores são construidas simplesmente com base no heap original porém, quando verificamos que ela está contida no top k palavras iremos remove-la do heap e adicionaremos a próxima palavra com maior frequência no texto, também deve-se observar os casos em que as palavras não estão contidas no texto, é apenas informado que a palavra não está contida no arquivo verificado.
 
 ## Máquina de teste
 
