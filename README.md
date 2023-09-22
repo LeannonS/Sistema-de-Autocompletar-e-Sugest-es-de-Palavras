@@ -300,9 +300,17 @@ A classe Utils em "Utils.hpp" e "Utils.cpp" desempenha um papel fundamental ao o
 
 Em "Utils.hpp" estão definidos os cabeçalhos dos métodos da classe Utils, enquanto em "Utils.cpp" estão as implementações concretas desses métodos. Aqui está uma explicação das principais utilidades e funcionalidades da classe Utils:
 
-* ```wchar_t* getText(const locale loc, string name)``` O método _getText_, recebe como parâmetro uma constante do tipo locale, tal parâmetro garante que as operações de leitura e manipulação de texto sejam sensíveis à localização, também é passado uma string chamada name que é referente ao nome do arquivo que será feito a leitura. A função _getText_, oferece a capacidade de ler um arquivo de texto e retornar seu conteúdo como um array de caracteres wchar_t. Isso é crucial para processar e analisar o conteúdo dos arquivos de entrada que contêm os textos. Além disso, a classe lida com a codificação UTF-8, garante que caracteres especiais sejam tratados corretamente.
+* ```wchar_t* getText(const locale& loc, string name)``` O método _getText_, recebe como parâmetro uma constante do tipo locale, tal parâmetro garante que as operações de leitura e manipulação de texto sejam sensíveis à localização, também é passado uma string chamada name que é referente ao nome do arquivo que será feito a leitura. A função _getText_, oferece a capacidade de ler um arquivo de texto e retornar seu conteúdo como um array de caracteres wchar_t. Isso é crucial para processar e analisar o conteúdo dos arquivos de entrada que contêm os textos. Além disso, a classe lida com a codificação UTF-8, garante que caracteres especiais sejam tratados corretamente.
 
-* ```unordered_set<wstring> getStopWords(const locale loc)``` O método _getStopWords_, recebe como parâmetro uma constante do tipo locale, tal parâmetro garante que as operações de leitura e manipulação de texto sejam sensíveis à localização. A função getStopWords, lê um arquivo contendo palavras de parada (stop words), que são palavras que geralmente são filtradas em processos de análise de texto, como na contagem de frequência de palavras. Essas palavras incluem termos como "e", "de", "para", que são frequentes e geralmente não fornecem informações significativas, retorando todas stopwords obtidas em uma estrutura chamada _unordered_set_.
+* ```unordered_set<wstring> getStopWords(const locale& loc)``` O método _getStopWords_, recebe como parâmetro uma constante do tipo locale, tal parâmetro garante que as operações de leitura e manipulação de texto sejam sensíveis à localização. A função getStopWords, lê um arquivo contendo palavras de parada (stop words), que são palavras que geralmente são filtradas em processos de análise de texto, como na contagem de frequência de palavras. Essas palavras incluem termos como "e", "de", "para", que são frequentes e geralmente não fornecem informações significativas, retorando todas stopwords obtidas em uma estrutura chamada _unordered_set_.
+
+* ```unordered_set<wstring> getInput(const locale& loc)``` O método _getInput_, recebe como parâmetro uma constante do tipo locle, tal parâmetro garante que as operações de leitura e manipulação de texto sejam sensíveis à localização. A função getInput, lê um arquivo contendo palavras para verificação, caso as palavras contidas no arquivo estejam presentes nos heaps, ela será removida e será adicionado o elemento top k+1 no lugar. Todas as palavras obtidas no arquivo input.data, será retornada em uma estrutura chamada _unordered_set_.
+
+```void swapMinHeap(vector<pair<wstring, int>>& minHeap, const int& indexToRemove, const vector<pair<wstring, int>>& proxTopK, const int& auxIndex)``` O metódo _swapMinHeap_, é responsável por fazer a troca e rebalanceamento do heap quando tiver a necessidade de modificar um elemento em determinada posição do heap. Tal função, recebe como parâmetro o minHeap, variável contendo um heap minimo, a váriavel indexToRemove para mostrar a localização do elemento a ser removido, proxTopK representando a váriavel top k+1 e por fim o parâmetro auxIndex, representando o texto que está sendo verificado para localizar o elemento top k+1 correto.
+
+```void makeFrequenciesMaps(const locale& loc, const int& numFiles, vector<unordered_map<wstring, int>>& frequenceMap)``` Função responsável pela criação de vários maps para cada um dos textos de entrada contendo as palavras e suas frequências no texto.
+
+```void makeHeaps(const int& k, const int& numFiles, const vector<unordered_map <wstring, int>>& frequenceMap, vector<vector<pair<wstring, int>>>& minHeap, vector<pair<wstring, int>>& proxTopK)``` Metódo responsável por criar vários heaps de tamanho k, é criado um heap para cada arquivo de entrada, também é responsável por obter a váriavel top k+1 (proxTopK) do texto que está sendo verificado.
 
 A classe Utils é uma forma eficiente de organizar essas funcionalidades auxiliares, isolando-as do restante do código e promovendo a reutilização de código. Ao reunir essas operações em uma única classe, você está seguindo princípios de modularidade e coesão, tornando o código mais organizado, legível e manutenível. Além disso, a classe ajuda a abstrair detalhes de implementação e proporciona uma interface mais intuitiva para o uso dessas funcionalidades em outras partes do programa.
 
@@ -312,13 +320,75 @@ A classe BinaryTree desempenha um papel fundamental no programa, oferecendo func
 
 Aqui estão algumas das principais funcionalidades e utilidades da classe BinaryTree:
 
+```void insertBinaryTree(BinaryTree **t, const pair<string, int>& word)``` Função responsável pela inserção de elementos na árvore binária.
+
+```void printBinaryTreePosOrdem(BinaryTree *t, ofstream& outputFile)``` Função responsável por imprimir a árvore binária através do metódo Pós-Ordem.
+
+```void printBinaryTreePreOrdem(BinaryTree *t, ofstream& outputFile)``` Função responsável por imprimir a árvore binária através do metódo Pré-Ordem.
+
+```void printBinaryTreeInOrdem(BinaryTree *t, ofstream& outputFile)``` Função responsável por imprimir a árvore binária através do metódo In-Ordem.
+
+```void printBinaryTree(BinaryTree *t, ofstream& outputFile)``` Está função é responsável por fazer a chamada de todos metódos de impressão, _printBinaryTreePosOrdem_, _printBinaryTreePreOrdem_ e por fim _printBinaryTreeInOrdem_.
+
+```void destroyBinaryTree(BinaryTree *t)``` Função encarregada de realizar a destruição da árvore binária.
+
+A classe BinaryTree é uma forma eficiente de organizar essas funcionalidades referentes a árvore binária, isolando-as do restante do código e promovendo a reutilização de código. Ao reunir essas operações em uma única classe, está sendo seguido princípios de modularidade e coesão, tornando o código mais organizado, legível e manutenível. Além disso, a classe ajuda a abstrair detalhes de implementação e proporciona uma interface mais intuitiva para o uso dessas funcionalidades em outras partes do programa.
+
 ### AVLTree.hpp e AVLTree.cpp
+
+A classe AVLTree desempenha um papel fundamental no programa, oferecendo funcionalidades essenciais para a manipulação de uma árvore AVL. Ela foi projetada para encapsular operações relacionadas à inserção, impressão e destruição de uma árvore binária. Os arquivos "AVLTree.hpp" e "AVLTree.cpp" contêm as definições e implementações dessa classe.
+
+Aqui estão algumas das principais funcionalidades e utilidades da classe AVLTree:
+
+```void destroyAVLTree(AVLTree *t)``` Função encarregada de realizar a destruição da árvore AVL.
+
+```void insertAVLTree(AVLTree **t, const pair<string, int>& word)``` Função responsável pela inserção de elementos na árvore AVL.
+
+```int getWeight(AVLTree **t)``` Metódo responsável por obter a altura de um nó da árvore AVL.
+
+```int getMaxWeight(int left, int right)``` Metódo responsável por obter a altura máxima de uma árvore AVL.
+
+```void rotacaoSimplesDireita(AVLTree **t)``` Função responsável por fazer uma rotação simples à direita na árvore AVL.
+
+```void rotacaoSimplesEsquerda(AVLTree **t)``` Função responsável por fazer uma rotação simples à esquerda na árvore AVL.
+
+```void rotacaoDuplaDireita(AVLTree **t)``` Função responsável por fazer uma rotação dupla à direita na árvore AVL.
+
+```void rotacaoDuplaEsquerda(AVLTree **t)``` Função responsável por fazer uma rotação dupla à esquerda na árvore AVL.
+
+```void printAVLTreePosOrdem(AVLTree *t, ofstream& outputFile)``` Função responsável por imprimir a árvore AVL através do metódo Pós-Ordem.
+
+```void printAVLTreePreOrdem(AVLTree *t, ofstream& outputFile)``` Função responsável por imprimir a árvore AVL através do metódo Pré-Ordem.
+
+```void printAVLTreeInOrdem(AVLTree *t, ofstream& outputFile)``` Função responsável por imprimir a árvore AVL através do metódo In-Ordem.
+
+```void printAVLTree(AVLTree *t, ofstream& outputFile)``` Está função é responsável por fazer a chamada de todos metódos de impressão, _printAVLTreePosOrdem_, _printAVLTreePreOrdem_ e por fim _printAVLTreeInOrdem_.
+
+A classe AVLTree é uma forma eficiente de organizar essas funcionalidades referentes a árvore AVL, isolando-as do restante do código e promovendo a reutilização de código. Ao reunir essas operações em uma única classe, está sendo seguido princípios de modularidade e coesão, tornando o código mais organizado, legível e manutenível. Além disso, a classe ajuda a abstrair detalhes de implementação e proporciona uma interface mais intuitiva para o uso dessas funcionalidades em outras partes do programa.
 
 ### HuffmanTree.hpp e HuffmanTree.cpp
 
+A classe HuffmanTree desempenha um papel fundamental no programa, oferecendo funcionalidades essenciais para a manipulação de uma árvore de Huffman. Ela foi projetada para encapsular operações relacionadas à inserção, impressão e destruição de uma árvore binária. Os arquivos "HuffmanTree.hpp" e "HuffmanTree.cpp" contêm as definições e implementações dessa classe.
+
+Aqui estão algumas das principais funcionalidades e utilidades da classe HuffmanTree:
+
+```void createHuffmanTree(HuffmanTree*& t, vector<pair<wstring, int>>& data)``` Função responsável pela criação da árvore de Huffman.
+
+```void printHuffmanTreePosOrdem(HuffmanTree* t, ofstream& outputFile, string code)``` Função responsável por imprimir a árvore de Huffman através do metódo Pós-Ordem.
+
+```void printHuffmanTreePreOrdem(HuffmanTree* t, ofstream& outputFile, string code)``` Função responsável por imprimir a árvore de Huffman através do metódo Pré-Ordem.
+
+```void printHuffmanTreeInOrdem(HuffmanTree* t, ofstream& outputFile, string code)``` Função responsável por imprimir a árvore de Huffman através do metódo In-Ordem.
+
+```void printHuffmanTree(HuffmanTree* t, ofstream& outputFile)``` Está função é responsável por fazer a chamada de todos metódos de impressão, _printHuffmanTreePosOrdem_, _printHuffmanTreePreOrdem_ e por fim _printHuffmanTreeInOrdem_.
+
+```void destroyHuffmanTree(HuffmanTree* t)``` Função encarregada de realizar a destruição da árvore de Huffman.
+
+A classe HuffmanTree é uma forma eficiente de organizar essas funcionalidades referentes a árvore de Huffman, isolando-as do restante do código e promovendo a reutilização de código. Ao reunir essas operações em uma única classe, está sendo seguido princípios de modularidade e coesão, tornando o código mais organizado, legível e manutenível. Além disso, a classe ajuda a abstrair detalhes de implementação e proporciona uma interface mais intuitiva para o uso dessas funcionalidades em outras partes do programa.
+
 ## Resultados
 
-* ```void printHeap(vector<Item> heap);``` O método _printHeap_, recebe como parâmetro um vector de Item que representa o heap. A função _printHeap_, é responsável por imprimir os elementos contidos em um heap, sendo ele o heap que armazena as palavras k mais frequentes. Isso é importante para visualizar os resultados do processamento das palavras e verificar se a lógica do heap está funcionando corretamente.
+
 
 ## Máquina de teste
 
