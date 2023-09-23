@@ -165,10 +165,10 @@ void Utils::makeHeaps(const int& k, const int& numFiles, const vector<unordered_
     
     for (const auto& aux: frequenceMap[i])
     { 
-      if(dataHeap.size() < k)
+      if(static_cast<int>(dataHeap.size()) < k)
       {
         dataHeap.push_back(make_pair(aux.first, aux.second));
-        if(dataHeap.size() == k)
+        if(static_cast<int>(dataHeap.size()) == k)
         {
           make_heap(dataHeap.begin(), dataHeap.end(), customComparator);
         }
